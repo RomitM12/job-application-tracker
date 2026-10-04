@@ -1,5 +1,6 @@
 // 1. Import Express, the library that handles HTTP requests and responses.
 import express from "express";
+import { db } from "./db.js";
 
 // 2. Create the app. Everything (middleware, routes) gets attached to this object.
 const app = express();
@@ -15,7 +16,8 @@ app.use(express.json());
 //    "When a GET request arrives at /api/health, run this function."
 //    req = what the client sent, res = how we reply.
 app.get("/api/health", (req, res) => {
-  res.json({ status: "ok" });
+  const row = db.prepare("SELECT COUNT(*) AS companies FROM companies").get();
+  res.json({ status: "ok", database: row });
 });
 
 // 6. Start listening for requests. The callback runs once the server is ready.
