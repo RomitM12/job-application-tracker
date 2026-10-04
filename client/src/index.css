@@ -136,3 +136,83 @@ header h1 {
   margin: 8px 0 0;
   font-size: 0.85rem;
 }
+
+.empty {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Form controls */
+input,
+select,
+button {
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 7px 10px;
+}
+
+input:focus,
+select:focus,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.add-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+  margin-bottom: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.add-form input {
+  flex: 1 1 160px;
+  min-width: 0;
+}
+
+.add-form .notes-input {
+  flex: 2 1 220px;
+}
+
+.add-form button[type='submit'] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+.card-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.card-actions select {
+  flex: 1;
+  min-width: 0;
+  padding: 4px 6px;
+  font-size: 0.85rem;
+}
+
+.card-actions .delete {
+  padding: 4px 8px;
+  font-size: 0.85rem;
+  color: var(--rejected);
+}
