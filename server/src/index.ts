@@ -1,6 +1,7 @@
 // 1. Import Express, the library that handles HTTP requests and responses.
 import express from "express";
 import { db } from "./db.js";
+import { applicationsRouter } from "./routes/applications.js";
 
 // 2. Create the app. Everything (middleware, routes) gets attached to this object.
 const app = express();
@@ -19,6 +20,9 @@ app.get("/api/health", (req, res) => {
   const row = db.prepare("SELECT COUNT(*) AS companies FROM companies").get();
   res.json({ status: "ok", database: row });
 });
+
+// Every route in applicationsRouter is mounted under /api/applications.
+app.use("/api/applications", applicationsRouter);
 
 // 6. Start listening for requests. The callback runs once the server is ready.
 app.listen(PORT, () => {
